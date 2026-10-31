@@ -1,0 +1,21 @@
+from botcore import *
+from time import sleep
+
+SPEED = 60
+TURN_FACTOR = 0.2
+
+motors.enable(True)
+threshold = 3600
+while True:
+    vals = ls.check(threshold)
+    leds.ls(vals)
+
+    if vals[0]:
+        motors.run(LEFT, SPEED * TURN_FACTOR)
+        motors.run(RIGHT, SPEED)
+    elif vals[4]:
+        motors.run(LEFT, SPEED)
+        motors.run(RIGHT, SPEED * TURN_FACTOR)
+    else:
+        motors.run(LEFT, SPEED)
+        motors.run(RIGHT, SPEED)

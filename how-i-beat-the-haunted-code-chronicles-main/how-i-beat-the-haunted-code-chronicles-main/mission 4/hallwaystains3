@@ -1,0 +1,16 @@
+from botcore import *
+from time import sleep
+
+motors.enable(True)
+motors.run(LEFT, 30)
+motors.run(RIGHT, 30)
+
+threshold = 3700
+
+while True:
+    vals = ls.check(threshold)
+    middle = vals[2]
+    print(middle)
+    sleep(.1)
+    if middle:
+        motors.enable(False)
