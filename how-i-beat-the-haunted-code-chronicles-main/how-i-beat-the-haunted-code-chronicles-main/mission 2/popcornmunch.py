@@ -1,5 +1,5 @@
 from botcore import *
-from time import 
+from time import sleep
 
 def munch(left, right, tm):
     motors.run(LEFT, left)
